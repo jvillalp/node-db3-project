@@ -1,5 +1,5 @@
 const express = require('express');
-
+const db = require('../data/db-config');
 const Schemes = require('./scheme-model.js');
 
 const router = express.Router();
@@ -48,7 +48,7 @@ router.get('/:id/steps', (req, res) => {
 
 router.post('/', (req, res) => {
   const schemeData = req.body;
-
+console.log(schemeData)
   Schemes.add(schemeData)
   .then(scheme => {
     res.status(201).json(scheme);
